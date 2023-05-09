@@ -9,24 +9,42 @@
     </head>
 
     <body>
+        <header>
+            <div class="right-side-header">
+                <img src="img/logo.png" alt="logo">
+                <h1>Campo Minato</h1>
+            </div>
+
+            <div class="left-side-header">
+                <form action="#" method="get">
+                    <span>Difficoltà:</span>
+    
+                    <!-- Selettore difficoltà -->
+                    <select name="Easy, Medium, Hard" id="easyMediumHard">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+    
+                    <!-- Pulsante Play/Reset -->
+                    <input id="pulsantePlay" type="button" value="Play">
+                    <input id="pulsanteReset" type="button" value="Reset">
+                </form>
+            </div>
+        </header>
         
-        <form action="#" method="get">
-            <!-- Selettore difficoltà -->
-            <select name="Easy, Medium, Hard" id="easyMediumHard">
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-            </select>
+        <main>
+             <!-- Griglia -->
+            <div id="containerGriglia">
 
-            <!-- Pulsante Play/Reset -->
-            <input id="pulsantePlay" type="button" value="Play">
-            <input id="pulsanteReset" type="button" value="Reset">
-        </form>
-
-        <!-- Griglia -->
-        <div id="containerGriglia">
-
-        </div>
+            </div>
+        </main>
+       
+        <footer>
+            <div>
+                Made with &hearts; by <span>Boolean</span>
+            </div>
+        </footer>
 
         <script type="text/javascript" src="js/main.js"></script>
 

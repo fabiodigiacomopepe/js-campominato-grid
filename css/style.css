@@ -5,18 +5,55 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #7fffd4;
+    overflow:hidden;
+}
+
+/* Regole header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+}
+
+/* Regole logo */
+img {
+    width: 50px;
+}
+
+/* Regole titolo */
+h1 {
+    display: inline-block;
+    position: relative;
+    bottom: 12px;
+    left: 5px;
+}
+
+/* Regole selettore difficoltà */
+#easyMediumHard {
+    width: 150px;
+}
+
+/*Regole pulsanti */
+#pulsantePlay,
+#pulsanteReset {
+    width: 55px;
+}
+
 /* Reegole griglia */
 .griglia {
     border: 2px solid black;
-    width: 40%;
-    margin: 0 auto;
+    width: 30%;
+    margin: 25px auto 800px;
     display: flex;
     flex-wrap: wrap;
 }
 
 /* Regole generali cella */
 .cella {
-    background-color: #7fffd4;
     border: 1px solid black;
     aspect-ratio: 1;
     display: flex;
@@ -42,4 +79,24 @@
 /* Regole una volta cliccata cella */
 .cambioColore {
     background-color: rgb(101, 169, 241);
+}
+
+/* Regole footer */
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    min-height: 60px;
+    width: 100%;
+    line-height: 60px;
+}
+
+footer div {
+    margin-left: 20px;
+}
+
+footer span {
+    text-decoration: underline;
+    color:blueviolet;
 }
