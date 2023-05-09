@@ -46,51 +46,31 @@ function creaGriglia() {
 
     if (difficolta === "easy") {                // SE difficoltà è EASY
         // Creo contatore per 100 celle
-        for (let i = 1; i <= 100; i++) {
-            const elementoCella = document.createElement("div");
-            elementoCella.classList.add("cella", "cellaEasy");
-            elementoCella.innerHTML = [i];
-    
-            elementoCella.addEventListener("click", eventoAlClickCella);
-            function eventoAlClickCella() {
-                elementoCella.classList.add("cambioColore");
-                console.log(elementoCella.textContent);
-            }
-    
-            elementoDiv.append(elementoCella);
-        }
+        const elementoDiv = creaElementiGriglia("100", "cellaEasy")
     } else if (difficolta === "medium") {        // SE difficoltà è MEDIUM
         // Creo contatore per 81 celle
-        for (let i = 1; i <= 81; i++) {
-            const elementoCella = document.createElement("div");
-            elementoCella.classList.add("cella", "cellaMedium");
-            elementoCella.innerHTML = [i];
-    
-            elementoCella.addEventListener("click", eventoAlClickCella);
-            function eventoAlClickCella() {
-                elementoCella.classList.add("cambioColore");
-                console.log(elementoCella.textContent);
-            }
-    
-            elementoDiv.append(elementoCella);
-        }
+        const elementoDiv = creaElementiGriglia("81", "cellaMedium")
     } else {                                     // ALTRIMENTI (se difficoltà è HARD)
         // Creo contatore per 49 celle
-        for (let i = 1; i <= 49; i++) {
-            const elementoCella = document.createElement("div");
-            elementoCella.classList.add("cella", "cellaHard");
-            elementoCella.innerHTML = [i];
-    
-            elementoCella.addEventListener("click", eventoAlClickCella);
-            function eventoAlClickCella() {
-                elementoCella.classList.add("cambioColore");
-                console.log(elementoCella.textContent);
-            }
-    
-            elementoDiv.append(elementoCella);
-        }
+        const elementoDiv = creaElementiGriglia("49", "cellaHard")
     }
 
     // Appendo elemento DIV con classe GRIGLIA contenente tutto al CONTAINER GRIGLIA
     containerGriglia.append(elementoDiv);
+
+    function creaElementiGriglia(numeroElementi, classe) {
+        for (let i = 1; i <= numeroElementi; i++) {
+            const elementoCella = document.createElement("div");
+            elementoCella.classList.add("cella", classe);
+            elementoCella.innerHTML = [i];
+        
+            elementoCella.addEventListener("click", eventoAlClickCella);
+            function eventoAlClickCella() {
+                elementoCella.classList.add("cambioColore");
+                console.log(elementoCella.textContent);
+            }
+        
+            elementoDiv.append(elementoCella);
+        }
+    }
 }
