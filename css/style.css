@@ -1,9 +1,11 @@
+/* Regole generali */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Reegole griglia */
 .griglia {
     border: 2px solid black;
     width: 40%;
@@ -12,24 +14,32 @@
     flex-wrap: wrap;
 }
 
+/* Regole generali cella */
 .cella {
     background-color: #7fffd4;
     border: 1px solid black;
-    width: 10%;
     aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* Cella difficoltà EASY */
+.cellaEasy{
+    width: 10%;
+}
+
+/* Cella difficoltà MEDIUM */
 .cellaMedium {
     width: calc(100% / 9);
 }
 
+/* Cella difficoltà HARD */
 .cellaHard {
     width: calc(100% / 7);
 }
 
+/* Regole una volta cliccata cella */
 .cambioColore {
     background-color: rgb(101, 169, 241);
 }

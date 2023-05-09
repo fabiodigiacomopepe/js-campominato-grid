@@ -11,21 +11,44 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
 */
 
+
+
+// Collego COSTANTE a pulsante PLAY e lego ad esso FUNZIONE "creaGriglia" da eseguire al CLICK
 const pulsantePlay = document.getElementById("pulsantePlay");
 pulsantePlay.addEventListener("click", creaGriglia);
 
+// Collego COSTANTE a pulsante RESET e lego ad esso FUNZIONE "resettaGriglia" da eseguire al CLICK
+const pulsanteReset = document.getElementById("pulsanteReset");
+pulsanteReset.addEventListener("click", resettaGriglia);
+
+// Collego COSTANTE a elemento "containerGriglia" preso dall'HTML
 const containerGriglia = document.getElementById("containerGriglia");
 
 
+
+// FUNZIONI
+// Funzione legata a pulsante RESET
+function resettaGriglia() {
+    history.go(0);
+}
+
+// Funzione legata a pulsante PLAY
 function creaGriglia() {
+    
+    // Creo elemento DIV
     const elementoDiv = document.createElement("div");
+
+    // Assegno a elemento DIV la classe GRIGLIA
     elementoDiv.classList.add("griglia");
+
+    // Leggo e segno in una costante "difficolta" il VALORE della DIFFICOLTA'
     const difficolta = document.getElementById("easyMediumHard").value;
 
-    if (difficolta === "easy") {
+    if (difficolta === "easy") {                // SE difficoltà è EASY
+        // Creo contatore per 100 celle
         for (let i = 1; i <= 100; i++) {
             const elementoCella = document.createElement("div");
-            elementoCella.classList.add("cella");
+            elementoCella.classList.add("cella", "cellaEasy");
             elementoCella.innerHTML = [i];
     
             elementoCella.addEventListener("click", eventoAlClickCella);
@@ -36,7 +59,8 @@ function creaGriglia() {
     
             elementoDiv.append(elementoCella);
         }
-    } else if (difficolta === "medium") {
+    } else if (difficolta === "medium") {        // SE difficoltà è MEDIUM
+        // Creo contatore per 81 celle
         for (let i = 1; i <= 81; i++) {
             const elementoCella = document.createElement("div");
             elementoCella.classList.add("cella", "cellaMedium");
@@ -50,7 +74,8 @@ function creaGriglia() {
     
             elementoDiv.append(elementoCella);
         }
-    } else {
+    } else {                                     // ALTRIMENTI (se difficoltà è HARD)
+        // Creo contatore per 49 celle
         for (let i = 1; i <= 49; i++) {
             const elementoCella = document.createElement("div");
             elementoCella.classList.add("cella", "cellaHard");
@@ -66,5 +91,6 @@ function creaGriglia() {
         }
     }
 
+    // Appendo elemento DIV con classe GRIGLIA contenente tutto al CONTAINER GRIGLIA
     containerGriglia.append(elementoDiv);
 }
