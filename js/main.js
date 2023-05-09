@@ -16,22 +16,54 @@ pulsantePlay.addEventListener("click", creaGriglia);
 
 const containerGriglia = document.getElementById("containerGriglia");
 
+
 function creaGriglia() {
     const elementoDiv = document.createElement("div");
     elementoDiv.classList.add("griglia");
+    const difficolta = document.getElementById("easyMediumHard").value;
 
-    for (let i = 1; i <= 100; i++) {
-        const elementoCella = document.createElement("div");
-        elementoCella.classList.add("cella");
-        elementoCella.innerHTML = [i];
-
-        elementoCella.addEventListener("click", eventoAlClickCella);
-        function eventoAlClickCella() {
-            elementoCella.classList.add("cambioColore");
-            console.log(elementoCella.textContent);
+    if (difficolta === "easy") {
+        for (let i = 1; i <= 100; i++) {
+            const elementoCella = document.createElement("div");
+            elementoCella.classList.add("cella");
+            elementoCella.innerHTML = [i];
+    
+            elementoCella.addEventListener("click", eventoAlClickCella);
+            function eventoAlClickCella() {
+                elementoCella.classList.add("cambioColore");
+                console.log(elementoCella.textContent);
+            }
+    
+            elementoDiv.append(elementoCella);
         }
-
-        elementoDiv.append(elementoCella);
+    } else if (difficolta === "medium") {
+        for (let i = 1; i <= 81; i++) {
+            const elementoCella = document.createElement("div");
+            elementoCella.classList.add("cella", "cellaMedium");
+            elementoCella.innerHTML = [i];
+    
+            elementoCella.addEventListener("click", eventoAlClickCella);
+            function eventoAlClickCella() {
+                elementoCella.classList.add("cambioColore");
+                console.log(elementoCella.textContent);
+            }
+    
+            elementoDiv.append(elementoCella);
+        }
+    } else {
+        for (let i = 1; i <= 49; i++) {
+            const elementoCella = document.createElement("div");
+            elementoCella.classList.add("cella", "cellaHard");
+            elementoCella.innerHTML = [i];
+    
+            elementoCella.addEventListener("click", eventoAlClickCella);
+            function eventoAlClickCella() {
+                elementoCella.classList.add("cambioColore");
+                console.log(elementoCella.textContent);
+            }
+    
+            elementoDiv.append(elementoCella);
+        }
     }
 
     containerGriglia.append(elementoDiv);

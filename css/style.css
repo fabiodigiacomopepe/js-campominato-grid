@@ -22,6 +22,14 @@
     justify-content: center;
 }
 
+.cellaMedium {
+    width: calc(100% / 9);
+}
+
+.cellaHard {
+    width: calc(100% / 7);
+}
+
 .cambioColore {
     background-color: rgb(101, 169, 241);
 }
