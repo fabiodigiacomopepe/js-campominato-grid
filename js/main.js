@@ -17,23 +17,17 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 const pulsantePlay = document.getElementById("pulsantePlay");
 pulsantePlay.addEventListener("click", creaGriglia);
 
-// Collego COSTANTE a pulsante RESET e lego ad esso FUNZIONE "resettaGriglia" da eseguire al CLICK
-const pulsanteReset = document.getElementById("pulsanteReset");
-pulsanteReset.addEventListener("click", resettaGriglia);
-
 // Collego COSTANTE a elemento "containerGriglia" preso dall'HTML
 const containerGriglia = document.getElementById("containerGriglia");
 
 
 
 // FUNZIONI
-// Funzione legata a pulsante RESET
-function resettaGriglia() {
-    history.go(0);
-}
-
 // Funzione legata a pulsante PLAY
 function creaGriglia() {
+
+    // Pulisco container (reset)
+    containerGriglia.innerHTML = "";
     
     // Creo elemento DIV
     const elementoDiv = document.createElement("div");
@@ -46,13 +40,13 @@ function creaGriglia() {
 
     if (difficolta === "easy") {                // SE difficoltà è EASY
         // Creo contatore per 100 celle
-        const elementoDiv = creaElementiGriglia("100", "cellaEasy")
+        const elementoDiv = creaElementiGriglia("100", "cellaEasy");
     } else if (difficolta === "medium") {        // SE difficoltà è MEDIUM
         // Creo contatore per 81 celle
-        const elementoDiv = creaElementiGriglia("81", "cellaMedium")
+        const elementoDiv = creaElementiGriglia("81", "cellaMedium");
     } else {                                     // ALTRIMENTI (se difficoltà è HARD)
         // Creo contatore per 49 celle
-        const elementoDiv = creaElementiGriglia("49", "cellaHard")
+        const elementoDiv = creaElementiGriglia("49", "cellaHard");
     }
 
     // Appendo elemento DIV con classe GRIGLIA contenente tutto al CONTAINER GRIGLIA
@@ -62,12 +56,12 @@ function creaGriglia() {
         for (let i = 1; i <= numeroElementi; i++) {
             const elementoCella = document.createElement("div");
             elementoCella.classList.add("cella", classe);
-            elementoCella.innerHTML = [i];
+            elementoCella.innerHTML = i;
         
             elementoCella.addEventListener("click", eventoAlClickCella);
             function eventoAlClickCella() {
                 elementoCella.classList.add("cambioColore");
-                console.log(elementoCella.textContent);
+                console.log(i);
             }
         
             elementoDiv.append(elementoCella);

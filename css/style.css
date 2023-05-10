@@ -17,6 +17,7 @@ header {
     align-items: center;
     padding: 20px;
     background-color: white;
+    height: 80px;
 }
 
 /* Regole logo */
@@ -38,16 +39,21 @@ h1 {
 }
 
 /*Regole pulsanti */
-#pulsantePlay,
-#pulsanteReset {
+#pulsantePlay {
     width: 55px;
+}
+
+/* Regole main */
+main {
+    height: calc(100vh - 140px);
+    overflow: scroll;
 }
 
 /* Reegole griglia */
 .griglia {
     border: 2px solid black;
     width: 30%;
-    margin: 25px auto 800px;
+    margin: 25px auto;
     display: flex;
     flex-wrap: wrap;
 }
@@ -83,11 +89,11 @@ h1 {
 
 /* Regole footer */
 footer {
-    position: absolute;
+    /* position: absolute;
     bottom: 0;
-    left: 0;
+    left: 0; */
     background-color: white;
-    min-height: 60px;
+    height: 60px;
     width: 100%;
     line-height: 60px;
 }
